@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        button {
+            width: 200px;
+            height:50px;
+        }
+    </style>
+</head>
+<body>
+    <!--节流 throttle 我们快速点击，我可以配置成-->
+    <button id="btn">快速点击</button>
+    <script>
+        // 节流
+        let btn = document.getElementById(btn);
+        function throttle () {
+            
+        }
+        function logger(){
+            console.log('logger');
+        }
+        btn.addEventListener('click',logger);
+    </script>
+</body>
+</html>
