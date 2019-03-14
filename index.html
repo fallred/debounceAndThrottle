@@ -13,18 +13,25 @@
     </style>
 </head>
 <body>
-    <!--节流 throttle 我们快速点击，我可以配置成-->
+    <!--节流 throttle 我们快速点击，我可以配置1s内的点击算1次-->
     <button id="btn">快速点击</button>
     <script>
         // 节流
-        let btn = document.getElementById(btn);
-        function throttle () {
-            
+        let btn = document.getElementById('btn');
+        function throttle (func, wait) {
+            let previous = 0;
+            return function () {
+                let now =  Date.now();
+                if (now-previous > wait) {
+                    func.apply(this,arguments);
+                    previous = now;
+                }
+            }
         }
         function logger(){
             console.log('logger');
         }
-        btn.addEventListener('click',logger);
+        btn.addEventListener('click',throttle(logger, 1000));
     </script>
 </body>
 </html>
